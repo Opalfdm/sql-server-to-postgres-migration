@@ -27,4 +27,12 @@ We'll be using
 3. Connect to SQL Server (pyodbc)
 4. Connect to PostgreSQL (pyscopg2-binary)
 5. Audit the data 
-6. For each table (get row count, extract all rows)
+6. For each table 
+    - get row count
+    - extract all rows
+    - transform the column name to lower case
+    - Convert the data types
+    - Create tables in PostgreSQL
+    - load tables in PostgreSQL
+7. Run post-data migration checks
+8. Generate validation report
