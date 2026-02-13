@@ -1,0 +1,51 @@
+Simplified Process Logs (SQL Server to Postgres)
+
+Pre‑Process (Planning & Data Quality)
+Identify tables to migrate: Categories, Customers, Products, Suppliers.
+
+Confirm source database row count (1,055,008 rows) and validate data quality:
+
+No NULLs in required fields
+
+No orphaned foreign keys
+
+No negative values or future dates
+
+Define migration pipeline: Audit → Extract → Transform → Load → Validate.
+
+🔹 Environment & Setup
+Create Conda environment (sqlserver-to-postgres, Python 3.11).
+
+Install key libraries: pandas, pyodbc, psycopg2-binary, python-dotenv, matplotlib.
+
+Initialize GitHub repo (sql-server-to-postgres-migration) and add .gitignore to exclude .env.
+
+Document workflow in README.md.
+
+🔹 Migration Workflow
+Connect to SQL Server (TransactionDB_UAT) and PostgreSQL (transaction_uat).
+
+Define table migration order based on dependencies (foreign keys).
+
+Perform pre‑migration checks (row counts, NULLs, negatives, orphan keys, schema mapping).
+
+Map SQL Server data types to PostgreSQL equivalents.
+
+Create target tables in PostgreSQL with rollback safety.
+
+Test migration with one table, then migrate remaining tables.
+
+Run post‑migration validation:
+
+Row counts match
+
+Data types preserved
+
+Primary keys unique
+
+Relationships intact
+
+🔹 Validation & Visualization
+Compare SQL Server vs PostgreSQL row counts and schema side‑by‑side.
+
+Generate validation charts with matplotlib to visualize migration success.
